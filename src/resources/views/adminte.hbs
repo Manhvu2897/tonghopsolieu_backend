@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    {{> header}}
+    {{> sidebars}}
+    <div class="content-wrapper">  
+         <div class="container">
+            <h3>The List displays "Users : Password"</h3>
+            <button  class="btn btn-danger" onclick="pageee()" >
+                Click
+            </button>
+            <a href="http://localhost:3005/home" target="_top">Test</a>
+            <hr>
+            <div id="content" style="color: red; margin-left: 400px;"></div>
+            <div type="submit" class="pa" id="paging" ></div>
+           
+        </div>
+    </div>
+</body>
+   <script src="../../extend/jquery-3.6.0.min.js"></script>
+    <script src="../../extend/pagination.js"></script>
+    <script src="../../extend/newNext.js"></script> 
+</html>

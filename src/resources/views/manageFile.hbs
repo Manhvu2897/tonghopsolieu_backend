@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   
+</head>
+<body>
+          {{> header}}
+        {{> mainsidebar}}
+      <div class="content-wrapper">
+            <section class="content-header">
+              <h1>
+                  Báo cáo
+                 
+              </h1>
+           
+            </section>
+            <section class="content">
+              <div class="btn-group btn_group">
+                <a href="/manh" class="btn btn-primary btn_report">Thêm báo cáo</a>
+              </div>
+              <div class="col-xs-12">
+                <div class="box">
+                  <div class="box-header">
+                    <h3 class="box-title">Danh sách báo cáo</h3>
+                  </div>
+                  <!-- /.box-header -->
+                  <div class="box-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                      <thead>
+                        <tr>
+                          <th>Tên báo cáo</th>
+                          <th>Người thêm</th>
+                          <th>Tuần</th>
+                          <th>Tháng</th>
+                          <th>Năm</th>
+                          <th>Ngày cập nhật</th>
+                          <th>Chi tiết</th>
+                          <th>Xóa</th>
+                        </tr>
+                      </thead>
+                 
+                    </table>
+                  </div>
+                </div>
+                <!-- /.box-body -->
+              </div>
+            </section>
+  </div>
+</body>
+</html>

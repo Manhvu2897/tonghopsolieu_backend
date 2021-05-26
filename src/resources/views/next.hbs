@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+    {{> header}}
+    {{> sidebars}}
+    
+        <div class="content-wrapper"  >
+           <div class="row" >
+                <div class="col-md-6">
+                        <div class="box box-info">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Radar Chart</h3>
+
+                          <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                          </div>
+                        </div>
+                        <div class="box-body">
+                          <div class="chart">
+                            <canvas id="myChart" style="height:250px"></canvas>
+                          </div>
+                        </div>
+                        
+                      </div>
+
+
+                         <div class="box box-info">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Mix Chart</h3>
+
+                          <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                          </div>
+                        </div>
+                        <div class="box-body">
+                          <div class="chart">
+                            <canvas id="myChart2" style="height:250px"></canvas>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                      <div class="col-md-6">
+          <!-- LINE CHART -->
+                      <div class="box box-info">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Radar Chart</h3>
+
+                          <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                          </div>
+                        </div>
+                        <div class="box-body">
+                          <div class="chart">
+                            <canvas id="radarChart" style="height:250px"></canvas>
+                          </div>
+                        </div>
+                        
+                      </div>
+
+
+                         <div class="box box-info">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Mix Chart</h3>
+
+                          <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                          </div>
+                        </div>
+                        <div class="box-body">
+                          <div class="chart">
+                            <canvas id="mixChart" style="height:250px"></canvas>
+                          </div>
+                        </div>
+                        
+                      </div>
+               </div>   
+
+           </div>
+                   
+                    
+<script>
+
+    let myChart = document.getElementById('myChart').getContext('2d');
+    let myChart2 = document.getElementById('myChart2').getContext('2d')
+    let radarChart = document.getElementById('radarChart').getContext('2d')
+    let mixChart = document.getElementById('mixChart').getContext('2d')
+ 
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Georgia';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+      let massPopChart4 = new Chart(mixChart, {
+           type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                  label: 'Doanh thu 2020',
+                  data: [10, 20, 30, 40, 50, 60, 70],
+                  fill: false,
+                  borderColor: 'rgb(75, 192, 192)',
+                }]
+            },
+            options: {
+              animations: {
+                tension: {
+                  duration: 1000,
+                  easing: 'linear',
+                  delay: 1000,
+                  from:1,
+                  to:0,
+                  loop: true
+                }
+              },
+              scales: {
+                y: {
+                  min: 20,
+                  max: 100
+                }
+              }
+            }
+      })
+
+      let massPopChart3 = new Chart(radarChart,{
+        type: 'radar',
+        data:{ 
+           labels: [
+                'Kinh Doanh',
+                'Changmi',
+                'Kaixin',
+                'TKbooks',
+                'Saiwai',
+                'Mcbooks',
+                
+              ],
+              datasets: [{
+                label: 'năm 2019',
+                data: [65, 59, 90, 81, 10, 55],
+                fill: true,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgb(255, 99, 132)',
+                pointBackgroundColor: 'rgb(255, 99, 132)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(255, 99, 132)'
+              }, {
+                label: 'năm 2020',
+                data: [28, 48, 40, 19, 06, 27],
+                fill: true,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgb(54, 162, 235)',
+                pointBackgroundColor: 'rgb(54, 162, 235)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(54, 162, 235)'
+              }]
+
+        }, plugins: {
+            tooltip: {
+           
+              events: ['click']
+            }
+        },
+        option:{
+               elements: {
+               line: {
+               borderWidth: 3
+          }
+        }
+
+
+        }
+      })
+
+    let massPopChart = new Chart(myChart, {
+      type:'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['Changmi', 'Kaixin', 'TKBooks', 'Saiwai', 'McBooks', 'Kinh Doanh'],
+        datasets:[{
+          label:'Population',
+          data:[
+            10,
+            20,
+            11,
+            16,
+            19,
+            9
+          ],
+        
+          backgroundColor:[
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)',
+            'rgba(255, 99, 132, 0.6)'
+          ],
+          borderWidth: 3,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#29',
+          tension: 0.1,
+          fill: true 
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'Bảng tổng hợp số liệu',
+          fontSize:18
+        },
+        legend:{
+          display:true,
+          position:'right',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        layout:{
+          padding:{
+            left:50,
+            right:0,
+            bottom:0,
+            top:0
+          }
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+
+
+    let massPopChart2 = new Chart(myChart2, {
+      type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['Changmi', 'Kaixin', 'TKBooks', 'Saiwai', 'McBooks', 'Kinh Doanh'],
+        datasets:[{
+          label: 'No Information',
+          data:[
+            10,
+            20,
+            11,
+            16,
+            19,
+            9
+          ],
+        
+          backgroundColor:[
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)',
+            'rgba(255, 99, 132, 0.6)'
+          ],
+          borderWidth: 3,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#29',
+          tension: 0.1,
+          fill: false
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'Bảng tổng hợp số liệu',
+          fontSize:18
+        },
+        legend:{
+          display:true,
+          position: 'right',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        layout:{
+          padding:{
+            left:50,
+            right:0,
+            bottom:0,
+            top:0
+          }
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+
+  </script>
+</body>
+</html>
