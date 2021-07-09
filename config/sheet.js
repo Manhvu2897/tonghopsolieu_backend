@@ -30,6 +30,7 @@ function getKeHoachBanRaMcBooks (file, upReport_id){
         report.create(
             {   
                 upReport_id:upReport_id,
+                type: 1,
                 mb_tradi: mb_tradi,
                 mb_onl:mb_onl,
                 mb_shopee:mb_shopee,
@@ -66,6 +67,7 @@ function getThucTeBanRaMcBooks (file,upReport_id){
         report.create(
             {   
                 upReport_id:upReport_id,
+                type: 2,
                 mb_tradi: mb_tradi,
                 mb_onl:mb_onl,
                 mb_shopee:mb_shopee,

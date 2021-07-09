@@ -26,7 +26,7 @@ function getCookie(cname) {
 
 // display
 var $j = jQuery.noConflict();
-function login() {
+ function  login() {
     $j.ajax({
         url: '/login',
         type: 'POST',
@@ -37,8 +37,11 @@ function login() {
     })
     .then(data =>{
         setCookie('token', data.token, 1)
-        setCookie('data', data, 1)
-        window.location.href = "/home"
+        if(data.token){
+          return  window.location.href = "/home"
+        }else{
+          alert(' password or username')
+        }
     })
     .catch(error =>{
         console.log(error);

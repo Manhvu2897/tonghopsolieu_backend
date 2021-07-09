@@ -43,18 +43,24 @@ class manageFileController {
                     as: 'user',
                     attributes:['fullname']
                 },
-                attributes:['id','reportName','user.fullname','week','month','year']
+                attributes:['id','reportName','user.fullname','week','month','year','updatedAt']
             })
             .then(data=>{
+
                 res.render('manageFile.hbs',{
-                    data: data,
+                    data: data[0],
                     username: req.result.fullname,
                     picturelink: req.result.avatar,
-
+                    month: data[0].month,
+                    reportName: data[0].reportName,
+                    week: data[0].week,
+                    year: data[0].year,
+                    id: data[0].id,
+                    updatedAt: data[0].updatedAt
                 })
             })
             .catch(err =>{
-                res.json(err)
+                res.redirect('/home')
             })
 
             
@@ -89,9 +95,14 @@ class manageFileController {
         
         //DELETE /manageFile
         delete(req, res){
-                upReport.destroy({
-                    where:{ id : { [Op.gte]: 1} }
-                })
+                Promise.all([
+                    report.destroy({
+                        where:{id: {[Op.gte]: 1}}
+                    }),
+                    upReport.destroy({
+                        where:{id: {[Op.gte]: 1}}
+                    })
+                ])
                 .then(data=>{
                     res.json('thanhcong')
                 })
@@ -100,20 +111,11 @@ class manageFileController {
                 })
         }
 
-    //     delete(req, res){
-    //         report.destroy({
-    //             where:{ id : { [Op.gte]: 1} }
-    //         })
-    //         .then(data=>{
-    //             res.json('thanhcong')
-    //         })
-    //         .catch(err =>{
-    //             res.json(err)
-    //         })
-    // }
+
 
 
 
 }
+
 
 module.exports = new manageFileController;

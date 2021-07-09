@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+{{> header}}
+{{> mainsidebar}}
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+       Tên báo cáo : <small>{{reportName}} /</small> 
+        <small class="team_name">Tuần {{week}} tháng {{month}} năm {{year}}</small>
+    </h1>
+   
+  </section>
+  <section class="content">
+    <div class="col-xs-6">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Doanh số bán ra</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table class="table table-striped table-bordered">
+                <tr>
+                  <th>Kênh</th>
+                  <th>Kế hoạch</th>
+                  <th>Thực đạt</th>
+                  <th>Tỷ lệ đạt</th>
+                </tr>
+                <tr>
+                  <th>Miền Bắc</th>
+                  <th>{{mb1}}</th>
+                  <th>{{mb2}}</td>
+                  <th><span class="badge bg-{{ mb_per}}">{{mb_per}}%</span></th>
+                </tr>
+                <tr>
+                  <td>Truyền thống</td>
+                  <td>{{mb_tradi_1}}</td>
+                  <td>{{mb_tradi_2}}</td>
+                  <td><span class="badge bg-{{ mb_tradi_per}}">{{mb_tradi_per}}%</span></td>
+                </tr>
+                <tr>
+                  <td>Đại lý Online</td>
+                  <td>{{mb_onl_1}}</td>
+                  <td>{{mb_onl_2}}</td>
+                  <td><span class="badge bg-{{ mb_onl_per}}">{{mb_onl_per}}%</span></td>
+                </tr>
+                <tr>
+                  <td>Shopee</td>
+                  <td>{{mb_shopee_1}}</td>
+                  <td>{{mb_shopee_2}}</td>
+                  <td><span class="badge bg-{{ mb_shopee_per}}">{{mb_shopee_per}}%</span></td>
+                </tr>
+                <tr>
+                  <td>Dự án</td>
+                  <td>{{mb_duan_1}}</td>
+                  <td>{{mb_duan_2}}</td>
+                  <td><span class="badge bg-{{ mb_duan_per}}">{{mb_duan_per}}%</span></td>
+                </tr>
+                <tr>
+                  <td>Bán lẻ bizbooks</td>
+                  <td>{{bl_bm_1}}</td>
+                  <td>{{bl_bm_2}}</td>
+                  <td><span class="badge bg-{{ bl_bm_per}}">{{bl_bm_per}}%</span></td>
+                </tr>
+                <tr>
+                  <td>Cá nhân bán lẻ</td>
+                  <td>{{bl_canhan_1}}</td>
+                  <td>{{bl_canhan_2}}</td>
+                  <td><span class="badge bg-{{ bl_canhan_per}}">{{bl_canhan_per}}%</span></td>
+                </tr>
+                <!-- ........... -->
+
+                <tr>
+                  <th>Miền Nam</th>
+                  <th>{{mn1}}</th>
+                  <th>{{mn2}}</th>
+                  <th><span class="badge bg-{{ mn_per}}">{{mn_per}}%</span></th>
+                </tr>
+                <tr>
+                  <td>Truyền thống</td>
+                  <td>{{mn_tradi_1}}</td>
+                  <td>{{mn_tradi_2}}</td>
+                  <td><span class="badge bg-{{ mn_tradi_per}}">{{mn_tradi_per}}%</span></td>
+                </tr>
+                <tr>
+                  <td>Tiki</td>
+                  <td>{{mn_tiki_1}}</td>
+                  <td>{{mn_tiki_2}}</td>
+                  <td><span class="badge bg-{{ mn_tiki_per}}">{{mn_tiki_per}}%</span></td>
+                </tr>
+                <tr>
+                  <td>Dự án</td>
+                  <td>{{mn_duan_1}}</td>
+                  <td>{{ mn_duan_2}}</td>
+                  <td><span class="badge bg-{{ mn_duan_per}}">{{mn_duan_per}}%</span></td>
+                </tr>
+
+                <tr>
+                    <th>Marketing</th>
+                </tr>
+                  <tr>
+                  <td>Marketing</td>
+                  <td>{{mkt_1}}</td>
+                  <td>{{mkt_2}}</td>
+                  <td><span class="badge bg-{{ mkt_per}}">{{mkt_per}}%</span></td>
+                </tr>
+                <tr>
+                  <td>Marketing bizbooks</td>
+                  <td>{{mkt_bm_1}}</td>
+                  <td>{{ mkt_bm_2}}</td>
+                  <td><span class="badge bg-{{ mkt_bm_per}}">{{mkt_bm_per}}%</span></td>
+                </tr>
+          </table>
+        </div>
+      </div>
+  
+    </div>
+
+
+  </section>
+</div>
+
+
+
+
+</body>
+</html>

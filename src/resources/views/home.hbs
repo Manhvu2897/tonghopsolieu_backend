@@ -13,6 +13,7 @@
       {{> mainsidebar}}
     <div class="content-wrapper">
     <!-- Content Header (Page header) -->
+  
     <section class="content-header">
       <h1>
         Dashboard
@@ -23,6 +24,7 @@
        
       </ol>
     </section>
+    
 
     <!-- Main content -->
     <section class="content">
@@ -32,15 +34,15 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150 </h3>
+              <h3>{{mb_per }} % </h3>
 
-              <p>New Orders</p>
+              <p>Miền Bắc</p>
               
             </div>
             <div class="icon">
-              <i class="ion ion-bag"></i>
+              <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="/manh" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/detail" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -48,14 +50,14 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <h3>{{mn_per}}<sup style="font-size: 20px">%</sup></h3>
 
-              <p>Bounce Rate</p>
+              <p>Miền Nam</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/detail" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -70,7 +72,7 @@
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/adminte" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -85,104 +87,150 @@
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="/adminte" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
       </div>
-      <!-- /.row -->
-      <!-- Main row -->
-      {{!-- <div class="row">
-        <!-- Left col -->
-        <section class="col-lg-7 connectedSortable">
-          <!-- Custom tabs (Charts with tabs)-->
-          <div class="nav-tabs-custom">
-            <!-- Tabs within a box -->
-            <ul class="nav nav-tabs pull-right">
-              <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-              <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
-              <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
-            </ul>
-            <div class="tab-content no-padding">
-              <!-- Morris chart - Sales -->
-              <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
-              <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
+
+
+           <section class="content-header">
+              <h1>
+                  Tổng quan tháng {{month}} năm {{year}}
+                
+              </h1>
+              <ol class="breadcrumb">
+   
+                  <li class="active">Tổng quan</li>
+              </ol>
+         </section>
+         <section class="content">
+        <div class="row chart-row">
+            <div class="col-md-16">
+               
+              
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box">
+                    <p class="text-center">
+                        <strong>Bán lẻ</strong>
+                    </p>
+                    <div class="progress-group">
+                        <span class="progress-text">BM</span>
+                        <span class="progress-number"><b>{{ bl_bm_1}} đ</b>/{{ bl_bm_2}} đ ({{bl_bm_per}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{ bl_bm_per}}" style="width: {{bl_bm_per}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group last_prog">
+                        <span class="progress-text">Cá nhân</span>
+                        <span class="progress-number"><b>{{ bl_canhan_1}} đ</b>/{{ bl_canhan_2}} đ ({{bl_canhan_per}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{ bl_canhan_per}}" style="width: {{bl_canhan_per}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                </div>
+
+                <div class="box">
+                    <p class="text-center">
+                        <strong>Marketing</strong>
+                    </p>
+                    <div class="progress-group">
+                        <span class="progress-text">Chi phí Marketing tổng</span>
+                        <span class="progress-number"><b>{{ mkt_1}} đ</b>/{{ mkt_2}} đ</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{ mkt_per}}" style="width: {{mkt_per}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group last_prog">
+                        <span class="progress-text">Chi phí Marketing thêm từ BM</span>
+                        <span class="progress-number"><b>{{ mkt_bm_1}} đ</b>/{{ mkt_bm_2}} đ</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-aqua" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                </div>
             </div>
-          </div>
             
-
-
-
-
-
-
-       
-
-        </section>
-        <!-- /.Left col -->
-        <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-5 connectedSortable" style="margin-top: -19px">
-
-          <!-- Map box -->
-          <div class="box box-solid bg-light-blue-gradient">
-
-         
-          </div>
-          <!-- /.box -->
-
-          <!-- solid sales graph -->
-          <div class="box box-solid bg-teal-gradient">
-            <div class="box-header">
-              <i class="fa fa-th"></i>
-
-              <h3 class="box-title"></h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn bg-teal btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn bg-teal btn-sm" data-widget="remove"><i class="fa fa-times"></i>
-                </button>
-              </div>
-            </div>
-            <div class="box-body border-radius-none">
-              <div class="chart" id="line-chart" style="height: 250px;"></div>
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer no-border">
-              <div class="row">
-                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                  <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
-                         data-fgColor="#39CCCC">
-
-                  <div class="knob-label">Mail-Orders</div>
+            <div class="col-md-4">
+                <div class="box">
+                    <p class="text-center">
+                        <strong>Miền Bắc</strong>
+                    </p>
+                    <div class="progress-group">
+                        <span class="progress-text">Truyền Thống</span>
+                        <span class="progress-number"><b>{{ mb_tradi_1}} đ</b>/{{ mb_tradi_2}} đ ({{mb_tradi_per}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{ mb_tradi_per}}" style="width: {{mb_tradi_per}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">Đại lý Online</span>
+                        <span class="progress-number"><b>{{ mb_onl_1}} đ</b>/{{ mb_onl_2}} đ ({{mb_onl_per}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{ mb_onl_per}}" style="width: {{mb_onl_per}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">Shopee</span>
+                        <span class="progress-number"><b>{{ mb_shopee_1}} đ</b>/{{ mb_shopee_2}} đ ({{mb_shopee_per}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{ mb_shopee_per}}" style="width: {{mb_shopee_per}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group last_prog">
+                        <span class="progress-text">Dự án</span>
+                        <span class="progress-number"><b>{{ mb_duan_1}} đ</b>/{{ mb_duan_2}} đ ({{mn_tradi_per}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{ mn_tradi_per}}" style="width: {{mn_tradi_per}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
                 </div>
-                <!-- ./col -->
-                <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                  <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
-                         data-fgColor="#39CCCC">
+            </div> 
 
-                  <div class="knob-label">Online</div>
+            <div class="col-md-4">
+                <div class="box">
+                    <p class="text-center">
+                        <strong>Miền Nam</strong>
+                    </p>
+                    <div class="progress-group">
+                        <span class="progress-text">Truyền thống</span>
+                        <span class="progress-number"><b>{{ mn_tradi_1}} đ</b>/{{ mn_tradi_2}} đ ({{mn_tradi_per}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{ mn_tradi_per}}" style="width: {{mn_tradi_per}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group">
+                        <span class="progress-text">Tiki</span>
+                        <span class="progress-number"><b>{{ mn_tiki_1}} đ</b>/{{ mn_tiki_2}} đ ({{mn_tiki_per}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{ mn_tiki_per}}" style="width: {{mn_tiki_per}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
+                    <div class="progress-group last_prog">
+                        <span class="progress-text">Dự án</span>
+                        <span class="progress-number"><b>{{ mn_duan_1}} đ</b>/{{ mn_duan_2}} đ ({{mn_duan_per}}%)</span>
+                        <div class="progress sm">
+                            <div class="progress-bar progress-bar-{{ mn_duan_per}}" style="width: {{mn_duan_per}}%"></div>
+                        </div>
+                    </div>
+                    <!-- /.progress-group -->
                 </div>
-                <!-- ./col -->
-                <div class="col-xs-4 text-center">
-                  <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
-                         data-fgColor="#39CCCC">
-
-                  <div class="knob-label">In-Store</div>
-                </div>
-                <!-- ./col -->
-              </div>
-              <!-- /.row -->
-            </div>
-            <!-- /.box-footer -->
-          </div>
-          <!-- /.box -->
-
-        </section>
-        <!-- right col -->
-      </div> --}}
-      <!-- /.row (main row) -->
-
+            </div>         
+        </div>
+    </section>  
+   
     </section>
         <section class="content">
       <div class="row">
@@ -276,6 +324,9 @@
     </section>
     <!-- /.content -->
   </div>
+  
+
+
 
 <script>
        let myChart = document.getElementById('lineChart').getContext('2d');
@@ -288,13 +339,13 @@
        Chart.defaults.global.defaultFontColor = '#777';
 
        let massPopChart = new Chart(myChart, {
-      type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      type:'polarArea', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
       data:{
         labels:['Changmi', 'Kaixin', 'TKBooks', 'Saiwai', 'McBooks', 'Kinh Doanh'],
         datasets:[{
           label: 'No Information',
           data:[
-            10,
+            {{id}},
             20,
             11,
             16,
@@ -382,17 +433,15 @@
         type: 'radar',
         data:{ 
            labels: [
-                'Kinh Doanh',
-                'Changmi',
-                'Kaixin',
-                'TKbooks',
-                'Saiwai',
-                'Mcbooks',
+                'Truyền Thống ',
+                'Tiki',
+                'Dự án',
+              
                 
               ],
               datasets: [{
-                label: 'năm 2019',
-                data: [65, 59, 90, 81, 10, 55],
+                label: 'Miền Bắc',
+                data: [62, 59, 90],
                 fill: true,
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
                 borderColor: 'rgb(255, 99, 132)',
@@ -401,8 +450,8 @@
                 pointHoverBackgroundColor: '#fff',
                 pointHoverBorderColor: 'rgb(255, 99, 132)'
               }, {
-                label: 'năm 2020',
-                data: [28, 48, 40, 19, 06, 27],
+                label: 'Miền Nam',
+                data: [78, 78, 90],
                 fill: true,
                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
                 borderColor: 'rgb(54, 162, 235)',

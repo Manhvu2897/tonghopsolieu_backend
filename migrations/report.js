@@ -11,6 +11,10 @@ module.exports = {
       upReport_id: {
         type: Sequelize.INTEGER
       },
+      type: {
+        type: Sequelize.INTEGER
+      }
+      ,
       mb_tradi: {
         type: Sequelize.DOUBLE
       },

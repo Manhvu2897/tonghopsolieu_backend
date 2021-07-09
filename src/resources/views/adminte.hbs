@@ -11,15 +11,23 @@
     {{> sidebars}}
     <div class="content-wrapper">  
          <div class="container">
-            <h3>The List displays "Users : Password"</h3>
-            <button  class="btn btn-danger" onclick="pageee()" >
-                Click
-            </button>
-            <a href="http://localhost:3005/home" target="_top">Test</a>
-            <hr>
-            <div id="content" style="color: red; margin-left: 400px;"></div>
-            <div type="submit" class="pa" id="paging" ></div>
-           
+               <h3>The List displays "Users : Password"</h3>
+             
+          <div class="box">
+              <div class="box-header">
+                        <button  class="btn btn-danger" onclick="pageee()" >
+                        Click
+                    </button>
+              </div>
+              <div class="box-body">
+                    <table class="table table-striped table-bordered">
+
+                         <tr> <th><div id="content" style="color: red; margin-left: 400px;"></div></th></tr>
+                        <tr> <th><div type="submit" class="pa" id="paging" ></div></th></tr>
+                
+                    </table>
+              </div>
+          </div>
         </div>
     </div>
 </body>

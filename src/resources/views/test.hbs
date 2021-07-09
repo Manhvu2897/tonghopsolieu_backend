@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Giải phương trình bậc 2</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		*
+		{
+			padding: 0;
+			margin: 0;
+			text-align: center;
+		}
+		.Main
+		{
+			border: solid 1px #359ee8;
+			border-radius: 10px;
+			margin-top: 10px;
+		}
+		.Top
+		{
+			background-color: #359ee8;
+			border-top-left-radius: 8px;
+			border-top-right-radius: 8px;
+			padding: 5px 0;
+			color: white;
+		}
+		.Bot
+		{   
+            background: white;
+			padding: 5px 0;
+		}
+		.ButtonFUN
+		{
+			padding: 15px 25px;
+  			outline: none !important;
+  			color: #fff;
+  			background-color: #359ee8;
+  			border: none;
+  			border-radius: 15px;
+  			box-shadow: 0 9px #999;
+  			margin: 10px 0;
+		}
+		.ButtonFUN:hover
+		{
+			background-color: #2578b3 !important;
+		}
+		.ButtonFUN:active
+		{
+			background-color: #359ee8;
+  			box-shadow: 0 5px #666;
+  			transform: translateY(4px);
+		}
+		.Button
+		{
+			margin: 10px 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="Main">
+			<div class="Top">
+				<h4>
+					Giải phương trình bậc 2
+				</h4>
+			</div>
+			<div class="Bot">
+				<div class="Text">
+					<span id="A">a</span>x<sup>2</sup>+<span id="B">b</span>x+<span id="C">c</span>=0 (a≠0)
+					<br>
+					<span id="End"></span>
+				</div>
+				<div class="Button">
+					<button class="ButtonFUN" type="button" onclick="CheckA()">Nhập A</button>
+					<button class="ButtonFUN" type="button" onclick="EnterB()">Nhập B</button>
+					<button class="ButtonFUN" type="button" onclick="EnterC()">Nhập C</button>
+					<button class="ButtonFUN" type="button" style="background-color: green" onclick="Done()">Giải phương trình</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function CheckA () {
+			do {
+				a = prompt('Nhập giá trị a');
+			} while (a == 0);
+			document.getElementById('A').innerHTML = a;
+		}
+		function EnterB () {
+			b = prompt('Nhập giá trị b');
+			document.getElementById('B').innerHTML = b;
+		}
+		function EnterC () {
+			c = prompt('Nhập giá trị b');
+			document.getElementById('C').innerHTML = c;
+		}
+		function Done () {
+			delta = b * b - 4 * a * c;
+			if (delta < 0) {
+				document.getElementById('End').innerHTML = 'Phương trình vô nghiệm';
+			} else if (delta == 0) {
+				nk = -b / (2 * a);
+				document.getElementById('End').innerHTML = 'Phương trình có nghiệm kép:' + '<br>' + ' x<sub>1</sub> = x<sub>2</sub> = ' + nk;
+			} else {
+				n1 = (-b + Math.sqrt(delta)) / (2 * a);
+				n2 = (-b - Math.sqrt(delta)) / (2 * a);
+				document.getElementById('End').innerHTML = 'Phương trình có 2 nghiệm phân biệt:' + '<br>' + 'x<sub>1</sub> = ' + n1 + '<br>' + 'x<sub>2</sub> = ' + n2;
+			}
+		}
+	</script>
+</body>
+</html>

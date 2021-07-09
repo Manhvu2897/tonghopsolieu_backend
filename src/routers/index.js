@@ -5,8 +5,14 @@ const registerRouter = require('./register')
 const loginRouter = require('./login')
 const adminteRouter = require('./adminte')
 const manageFileRouter = require('./manageFile')
+const detailRouter = require('./detail')
+const testRouter = require('./test')
 
 function route(app) {
+    app.use('/test', testRouter)
+
+    app.use('/detail', detailRouter)
+
     app.use('/manageFile', manageFileRouter)
     
     app.use('/adminte', adminteRouter )

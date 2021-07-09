@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   report.init({
     upReport_id: DataTypes.INTEGER,
+    type: DataTypes.INTEGER,
     mb_tradi: DataTypes.DOUBLE,
     mb_onl: DataTypes.DOUBLE,
     mb_shopee: DataTypes.DOUBLE,

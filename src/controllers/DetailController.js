@@ -1,49 +1,37 @@
-
-
-const  {sequelize ,user, report, upReport } = require('../helper/connect')
 const jwt = require('jsonwebtoken')
+const {sequelize, user, upReport, report} = require('../helper/connect')
 const { Op } = require("sequelize");
 
-
-class SiteController {
-    // GET /home
-
- index(req, res, next) { 
-        
-   
+class DetailController {
+    index(req,res){ 
     }
 
-     
-    // GET /home
-    index2 (req, res, next){
+    check(req, res, next){
         try {
-            var token = req.cookies.token
-            var result = jwt.verify(token, 'mk')
-            user.findOne({
-                where:{
-                        id: result.id
-                }
-            })
-            .then(result=>{
-                if(result){
-                    req.result = result
-                                      
-                    next()
-                  
-                    
-                }
-            })
-            .catch(err =>{
-                res.json(err)
-            })
-          
-        } catch (error) {
-            return res.redirect('/login')
-        }   
-    }
-    //GET /home
-    index3 (req ,res ,next){
-   
+                var token = req.cookies.token
+                var result = jwt.verify(token, 'mk')
+                user.findOne({
+                    where:{
+                            id: result.id
+                    }
+                })
+                .then(result=>{
+                    if(result){
+                        req.result = result                                                
+                        next()                           
+                        
+                    }
+                })
+                .catch(err =>{
+                    res.json(err)
+                })
+              
+            } catch (error) {
+                return res.redirect('/login')
+            }
+}
+
+    index2( req, res){
         report.findAll({
             include:{
                 model: upReport,
@@ -70,8 +58,7 @@ class SiteController {
             ])
             .then( () =>{
                 
-                res.render('home.hbs',{
-                    id: req.result.id,
+                res.render('detail.hbs',{
                     username: req.result.fullname,
                     picturelink: req.result.avatar,
                     week: data[0].upReport.week,
@@ -130,12 +117,9 @@ class SiteController {
         .catch(err =>{
             res.redirect('/manh')
         })
+        
+     
     }
-
-
-  
-
-   
 }
 function getVal(type){
     return report.findOne({
@@ -155,4 +139,4 @@ function getPercent(num1,num2){
     return num1 / num2 * 100;
 }
 
-module.exports = new SiteController;
+module.exports = new DetailController

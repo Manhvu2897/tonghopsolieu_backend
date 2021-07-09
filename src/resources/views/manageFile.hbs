@@ -12,44 +12,79 @@
           {{> header}}
         {{> mainsidebar}}
       <div class="content-wrapper">
-            <section class="content-header">
-              <h1>
-                  Báo cáo
-                 
-              </h1>
-           
-            </section>
-            <section class="content">
-              <div class="btn-group btn_group">
-                <a href="/manh" class="btn btn-primary btn_report">Thêm báo cáo</a>
-              </div>
-              <div class="col-xs-12">
-                <div class="box">
-                  <div class="box-header">
-                    <h3 class="box-title">Danh sách báo cáo</h3>
-                  </div>
-                  <!-- /.box-header -->
-                  <div class="box-body">
-                    <table id="example1" class="table table-bordered table-striped">
-                      <thead>
-                        <tr>
-                          <th>Tên báo cáo</th>
-                          <th>Người thêm</th>
-                          <th>Tuần</th>
-                          <th>Tháng</th>
-                          <th>Năm</th>
-                          <th>Ngày cập nhật</th>
-                          <th>Chi tiết</th>
-                          <th>Xóa</th>
-                        </tr>
-                      </thead>
-                 
-                    </table>
-                  </div>
-                </div>
-                <!-- /.box-body -->
-              </div>
-            </section>
+           <section class="content-header">
+                    <h1>
+                        Báo cáo
+                      
+                    </h1>
+                
+                  </section>
+                  <section class="content">
+                    <div class="btn-group btn_group">
+                          <a href="/manh" class="btn btn-primary btn_report">Thêm báo cáo</a>
+                        </div>
+                        <div class="col-xs-12">
+                              <div class="box">
+                                    <div class="box-header">
+                                      <h3 class="box-title">Danh sách báo cáo</h3>
+                                    </div>
+                                    <!-- /.box-header -->
+                                  <div class="box-body">
+                                  <div class="box-body">
+                                        <table id="example1" class="table table-bordered table-striped">
+                                          <thead>
+                                            <tr>
+                                              <th>Tên báo cáo</th>
+                                              <th>Người thêm</th>
+                                              <th>Tuần</th>
+                                              <th>Tháng</th>
+                                              <th>Năm</th>
+                                              <th>Ngày cập nhật</th>
+                                              <th>Chi tiết</th>
+                                              <th>Xóa</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                          
+                                              <tr>
+                                                  <td>{{reportName}}</td>
+                                                  <td>{{username}}</td>
+                                                  <td>{{week}}</td>
+                                                  <td>{{month}}</td>
+                                                  <td>{{year}}</td>
+                                                  <td>{{updatedAt}}</td>
+                                                  <td><a href="/detail">Chi tiết</a></td>
+                                                  <td><a data-toggle="modal" data-id="{{id}}" data-target="#myModal">Xóa</a></td>
+                                              </tr>
+                                              
+                                          
+                                          </tbody>   
+                                      
+                                        </table>
+                                  </div>
+                              </div>
+                         </div>
+                        </div>
+                   </section>
   </div>
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="Label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Cảnh báo</h4>
+      </div>
+      <div class="modal-body">
+        Bạn có chắc chắn muốn xóa báo cáo này không ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+        <button type="submit" onclick="deleteForm()" class="btn btn-danger">Xóa báo cáo</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
+<script src="../../extend/jquery-3.6.0.min.js"></script>
+<script src="../../extend/manageFile.js"></script>
 </html>
